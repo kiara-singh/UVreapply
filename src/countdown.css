@@ -1,0 +1,22 @@
+
+.center {
+    margin: auto;
+    width: 25%;
+    border: 3px solid rgb(255, 255, 255);
+    padding: 10px;
+    text-align:center;
+  }
+
+.toast{
+    background-color: black;
+
+} 
+  
+  
+.Countdown .applyButton{
+    margin-bottom: 2000px;
+}
+
+.Countdown .resetButton{
+    margin-top: 5em;
+}
