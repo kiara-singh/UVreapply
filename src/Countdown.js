@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Alert, Button, Toast, ToastBody, ToastHeader, ToastContainer}from 'react-bootstrap'
+import {Button, Toast, ToastBody, ToastHeader, ToastContainer}from 'react-bootstrap'
 import "./countdown.css";
 
 function Countdown () {
@@ -24,8 +24,6 @@ function Countdown () {
                     setHours(h=>h-1)
                     setMinutes(59)
                     setSeconds(59)
-                }else{
-                    setShow(true)
                 }
             },1000)  
         }
@@ -63,20 +61,23 @@ function Countdown () {
         </div>
 
         <div className='notification'>
-            {show&&   <Alert variant="danger" onClose={()=>setShow(false)} dismissible> <Alert.Heading>Time to reapply</Alert.Heading> </Alert>}
-              
+            {/* {show&&   <Alert variant="danger" onClose={()=>setShow(false)} dismissible> <Alert.Heading>Time to reapply</Alert.Heading> </Alert>} */}
+            {
+                show && 
+                <ToastContainer className="notification" position="top-end">
+                    <Toast onClose={reset}>
+                        <ToastHeader>
+                                Reapplication reminder!
+                        </ToastHeader>
+                        <ToastBody className="Dark">
+                                It's been two hours, time to reapply!
+                        </ToastBody>
+                    </Toast>
+                </ToastContainer>
+            }
         </div>
 
-        <ToastContainer className="notification" position="top-end">
-            <Toast>
-                <ToastHeader>
-                            Reapplication reminder!
-                </ToastHeader>
-                <ToastBody className="Dark">
-                            It's been two hours, time to reapply!
-                </ToastBody>
-            </Toast>
-        </ToastContainer>
+       
 
     </div>
 
