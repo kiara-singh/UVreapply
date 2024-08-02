@@ -13,21 +13,20 @@ function App() {
   const[lat,setLat]=useState(0)
   const[long,setLong]=useState(0)
   const[UV,setUV]=useState([])
-  const UVapikey="openuv-dln7c1rlyr3t1yw-io";
-  const UVapiurl="https://api.openuv.io/api/v1/uv";
 
-  
-  const url2=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${long}&daily=uv_index_max,uv_index_clear_sky_max&timezone=auto&forecast_days=1`
   const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=cd990b4f0752b81744e02484bddfa385&units=metric`
 
   function SPF(){
     if(UV.result){
       if((UV.result.uv)>=3){
+        console.log("yes")
         return "YES!"
       }else{
+        console.log("no")
         return "Not needed"
       }
     }
+    console.log("end")
   }
 
   function getTime(time){
@@ -73,7 +72,7 @@ function App() {
   return (
     <div className="App">
     <div>
-    <button onClick={getTime}>click me</button>
+    <p>Test: {SPF()}</p>
     </div>
 
       <div className="search">
@@ -114,12 +113,12 @@ function App() {
           </div>
 
           <div className="maxUV">
-          {UV.result ? <p>{UV.result.uv_max} at {getTime(UV.result.uv_max_time)}</p>:null}
+            {UV.result ? <p>{UV.result.uv_max} at {getTime(UV.result.uv_max_time)}</p>:null}
             <p>Max UV</p>
           </div>
 
           <div className="SPF Reccomended?">
-          <p> {SPF()}</p>
+            <p>{SPF()}</p>
             <p>SPF Reccomendation</p>
           </div>
         </div>
