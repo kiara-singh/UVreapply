@@ -71,10 +71,7 @@ function App() {
 
   return (
     <div className="App">
-    <div>
-    <p>Test: {SPF()}</p>
-    </div>
-
+      
       <div className="search">
         <input
         value={location}
@@ -121,6 +118,7 @@ function App() {
             <p>{SPF()}</p>
             <p>SPF Reccomendation</p>
           </div>
+          
         </div>
       </div>
     </div>

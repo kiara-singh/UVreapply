@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Button, Toast, ToastBody, ToastHeader, ToastContainer}from 'react-bootstrap'
+import {Button, ButtonGroup, Toast, ToastBody, ToastHeader, ToastContainer}from 'react-bootstrap'
 import "./countdown.css";
 
 function Countdown () {
@@ -52,16 +52,24 @@ function Countdown () {
             <h1>{hours}:{minutes}:{seconds}</h1>
         </div>
 
-        <div className='applyButton'>
-            <Button variant="success" onClick={!applied ? ()=>setApplied(true) : null} >  {!applied ? "Apply" :"Have fun in the sun!"}</Button>
+        <div className='buttons'>
+            <ButtonGroup variant="contained" aria-label="Basic button group">
+
+                <Button variant="success" onClick={!applied ? ()=>setApplied(true) : null}>
+                    {!applied ? "Apply" :"Have fun in the sun!"}
+                </Button>
+
+                <Button onClick={reset}>Reset</Button>
+
+            </ButtonGroup>
+
         </div>
 
         <div className='resetButton'>
-                <Button onClick={reset}>Reset</Button>
+               
         </div>
 
         <div className='notification'>
-            {/* {show&&   <Alert variant="danger" onClose={()=>setShow(false)} dismissible> <Alert.Heading>Time to reapply</Alert.Heading> </Alert>} */}
             {
                 show && 
                 <ToastContainer className="notification" position="top-end">
@@ -75,13 +83,8 @@ function Countdown () {
                     </Toast>
                 </ToastContainer>
             }
-        </div>
-
-       
-
+        </div>  
     </div>
-
-   
   )
 }
 
