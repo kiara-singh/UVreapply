@@ -4,6 +4,7 @@
   box-sizing: content-box;
   margin:0;
   padding:0;
+  border: 1px solid red !important;  
 }
 
 body {
@@ -35,10 +36,11 @@ h1{
   background: url('./assets/clouds.jpg') no-repeat center center/cover;
   position: absolute;
   width: 100%;
-  height:100%;
+  height:100vh;
   top:0;
   left:0;
   z-index:-1;
+  background-size:cover;
 }
 
 .App .search{
@@ -67,6 +69,7 @@ h1{
   text-align: left;
   padding: .4rem;
 }
+
 .container{
   max-width: 700;
   height: 650px;
@@ -101,6 +104,13 @@ h1{
   border-radius:12px;
   background-color:rgba(255,255,255,0.2);
 }
+
+/* .App .SPF{
+  position:absolute;
+  right:100px;
+  bottom:30px;
+  
+} */
 
 
 .bold{

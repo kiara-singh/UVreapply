@@ -16,6 +16,14 @@ function App() {
 
   const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=cd990b4f0752b81744e02484bddfa385&units=metric`
 
+
+  function notifyUser(){
+      Notification.requestPermission().then((promise)=>{
+        console.log(promise);
+      });
+  }
+
+  
   function SPF(){
     if(UV.result){
       if((UV.result.uv)>=3){
@@ -71,6 +79,7 @@ function App() {
 
   return (
     <div className="App">
+      <button onClick={notifyUser}>hello</button>
       
       <div className="search">
         <input
@@ -114,7 +123,7 @@ function App() {
             <p>Max UV</p>
           </div>
 
-          <div className="SPF Reccomended?">
+          <div className="SPF">
             <p>{SPF()}</p>
             <p>SPF Reccomendation</p>
           </div>
