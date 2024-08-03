@@ -10,6 +10,23 @@ function Countdown () {
     const [minutes,setMinutes]=useState(0);
     const[seconds,setSeconds]=useState(5);
     const[show,setShow]=useState(false);
+    const[notify,setNotify]=useState(false)
+    const[buttonView,setButtonView]=useState(true)
+    
+    function notifyUser(){
+
+        Notification.requestPermission().then((promise)=>{
+          if(promise==="granted"){
+            setNotify(true);
+            setButtonView(false);
+          }else if(promise==="denied"){
+            setNotify(false);
+            setButtonView(false);
+          }
+        });
+
+    }
+
 
     useEffect(()=>{
         let interval;
@@ -29,12 +46,16 @@ function Countdown () {
         }
 
         if(seconds===0 && minutes===0 && hours===0){
-            setShow(true)
+            if(notify){
+                new Notification("Time to reapply!")
+            }else{
+                setShow(true)
+            }
         }
 
         return ()=>clearInterval(interval);
 
-    },[seconds,minutes,hours,applied]);
+    },[seconds,minutes,hours,applied])
 
 
     function reset(){
@@ -83,6 +104,10 @@ function Countdown () {
                     </Toast>
                 </ToastContainer>
             }
+
+            {buttonView && <button onClick={notifyUser()}>Turn on notifications</button>}
+
+            {buttonView && <p>Please allow notifications. If you deny, the app will instead alert you on this window. </p>}
         </div>  
     </div>
   )

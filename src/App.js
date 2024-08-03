@@ -14,14 +14,21 @@ function App() {
   const[long,setLong]=useState(0)
   const[UV,setUV]=useState([])
 
+
   const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=cd990b4f0752b81744e02484bddfa385&units=metric`
 
+  // const[notify,setNotify]=useState(false)
 
-  function notifyUser(){
-      Notification.requestPermission().then((promise)=>{
-        console.log(promise);
-      });
-  }
+  // function notifyUser(){
+
+  //     Notification.requestPermission().then((promise)=>{
+  //       if(promise==="granted"){
+  //         new Notification("Test");
+  //       }
+  //     });
+  // }
+  
+
 
   
   function SPF(){
@@ -79,7 +86,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={notifyUser}>hello</button>
+
       
       <div className="search">
         <input
