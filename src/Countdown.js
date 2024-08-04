@@ -55,7 +55,7 @@ function Countdown () {
 
         return ()=>clearInterval(interval);
 
-    },[seconds,minutes,hours,applied])
+    },[seconds,minutes,hours,applied,notify]);
 
 
     function reset(){
