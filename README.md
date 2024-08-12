@@ -1,6 +1,4 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app was built using Open-UV's API. It fetches information such as current UV index, temperature, time and value of highest UV index and whether sunscreen is recommended in the moment of the request. Users are able to get this information for any part of the world as they can type in the location inside a search box. 
 
 ## Available Scripts
 
