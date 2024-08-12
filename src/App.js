@@ -82,13 +82,23 @@ function App() {
     }
   },[lat,long]);
 
+//   function colorCodeDivs() {
+//   const colors = ['#FFC0CB', '#ADD8E6', '#98FB98', '#FFD700', '#FFA07A', '#FF6347', '#87CEEB', '#98FF98', '#FF69B4', '#DDA0DD', '#FFA500', '#00FF00']; // 12 predefined colors
+//   const divs = Array.from(document.querySelectorAll('div'));
+
+//   divs.forEach((div, index) => {
+//     const colorIndex = index % colors.length;
+//     div.style.backgroundColor = colors[colorIndex];
+//     div.textContent = `Div ${index + 1}`;
+//   });
+// }
 
 
   return (
-    <div className="App">
+    <div  style={{backgroundColor,borderColor:'#FFC0CB' }} className="App" >
 
       
-      <div className="search">
+      <div style={{backgroundColor:'#ADD8E6' }} className="search">
         <input
         value={location}
         onChange={event=>setLocation(event.target.value)}
@@ -98,39 +108,40 @@ function App() {
         />
       </div>
 
-      <div className="container">
-        <div className="top">
+      <div style={{backgroundColor:'#98FB98'}} className="container">
+        <div style={{backgroundColor:'#FFD700'}} className="top">
 
-          <div className="location">
+          <div style={{backgroundColor: '#FFA07A' }} className="location">
             <p>{data.name}</p>
           </div>
 
-          <div className="UV">
+          <div style={{backgroundColor: '#FF6347' }} className="UV">
           {UV.result ? <h1>UV INDEX: {UV.result.uv}</h1> : null}
           </div>
 
-          <div className="reminder">
+          <div style={{backgroundColor:'#87CEEB'}} className="reminder">
             <Countdown/>
           </div>
 
-          <div className="description">
+          <div style={{backgroundColor:'#98FF98' }} className="description">
           {data.weather ? <p>{data.weather[0].main}</p>:null}
           </div>
 
         </div>
-        <div className="bottom">
+        <div style={{backgroundColor:'#DDA0DD'}} className="bottom">
 
-          <div className="temp">
+
+          <div style={{backgroundColor:'#FF69B4' }} className="temp">
             {data.main ? <p>{data.main.temp}C</p>:null}
             <p>Temperature</p>
           </div>
 
-          <div className="maxUV">
+          <div style={{backgroundColor:'#FFA500' }} className="maxUV">
             {UV.result ? <p>{UV.result.uv_max} at {getTime(UV.result.uv_max_time)}</p>:null}
             <p>Max UV</p>
           </div>
 
-          <div className="SPF">
+          <div style={{backgroundColor:'#00FF00' }} className="sunscreen">
             <p>{SPF()}</p>
             <p>SPF Reccomendation</p>
           </div>
