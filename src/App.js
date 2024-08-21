@@ -13,6 +13,7 @@ function App() {
   const[lat,setLat]=useState(0)
   const[long,setLong]=useState(0)
   const[UV,setUV]=useState([])
+  const[error,setError]=useState(false)
 
 
   const url=`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=cd990b4f0752b81744e02484bddfa385&units=metric`
@@ -66,12 +67,23 @@ function App() {
       .then((result) => {
         setUV(result.data)
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err)
+        setError(true)
+      });
     }
   },[lat,long]);
 
+  render(){
+    if(error){
+      return <h1>Oh no a error</h1>
+    }
+  }
+
 
   return (
+
+
     <div className="App" >
     
       <div  className="search">

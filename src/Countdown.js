@@ -6,9 +6,9 @@ import "./countdown.css";
 
 function Countdown () {
     const [applied,setApplied]=useState(false);
-    const [hours,setHours]=useState(0);
+    const [hours,setHours]=useState(2);
     const [minutes,setMinutes]=useState(0);
-    const[seconds,setSeconds]=useState(5);
+    const[seconds,setSeconds]=useState(0);
     const[show,setShow]=useState(false);
     const[notify,setNotify]=useState(false)
     const[buttonView,setButtonView]=useState(true)
@@ -61,9 +61,9 @@ function Countdown () {
     function reset(){
         setApplied(false)
         setShow(false)
-        setHours(0)
+        setHours(2)
         setMinutes(0)
-        setSeconds(5)
+        setSeconds(0)
     }
 
   return (
@@ -107,7 +107,8 @@ function Countdown () {
 
             {buttonView && <button onClick={notifyUser()}>Turn on notifications</button>}
 
-            {buttonView && <p>Please allow notifications. If you deny, the app will instead alert you on this window. </p>}
+            {buttonView && <p>Please allow notifications. 
+            If you deny, the app will instead alert you on this window. </p>}
         </div>  
     </div>
   )
